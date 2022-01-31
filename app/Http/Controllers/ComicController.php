@@ -19,4 +19,9 @@ class ComicController extends Controller
 
         return view('pages.singlecomic', compact('comic'));
     }
+
+    public function create() {
+
+        return view('pages.create');
+    }
 }

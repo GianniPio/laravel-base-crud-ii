@@ -29,3 +29,11 @@
   text-align: center;
 }
 
+* input,
+* label {
+  display: block;
+  margin: 10px 0;
+  color: white;
+  padding: 10px;
+}
+
