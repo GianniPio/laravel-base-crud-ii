@@ -2,7 +2,23 @@
 
 @section('content')
    <h1>Add new comic</h1>
-   <form>
+   @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+       
+   @endif
+
+
+   <form action="{{route('store')}}"  method="POST">
+
+        @method("POST")
+        @csrf
+
        <label for="title">Title:</label>
        <input type="text" name="title" placeholder="add title">
        <label for="author">Author:</label>

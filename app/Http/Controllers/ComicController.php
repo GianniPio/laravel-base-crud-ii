@@ -24,4 +24,25 @@ class ComicController extends Controller
 
         return view('pages.create');
     }
+
+    public function store(Request $request) {
+
+        // dd($request -> all()); per vedere cosa contiene la request
+
+      $data = $request -> validate([
+          'title' => 'required|string|max:255',
+          'author' => 'required|string|max:255',
+          'release_date' => 'required|date',
+          'pages' => 'required|numeric|max:130|min:20'
+      ]); 
+
+    //   dd($data);
+
+      $comic = Comic::create($data); //aggiunge i dat nel database
+
+    //   return redirect() -> route('home'); porta direttamente nella home
+      return redirect() -> route('comic', $comic -> id); //porta nella comic del nuovo data creato
+    }
+
+    
 }
